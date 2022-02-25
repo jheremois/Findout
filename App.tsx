@@ -1,20 +1,21 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import AppRoutes from '@src/router/app.routes'
+import { AppStyles } from '@src/shared/styles/AppStyles'
+import { AppColors } from '@src/shared/styles/AppDefaults'
+import React from 'react'
+import { SafeAreaView, StatusBar } from 'react-native'
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+const App = ()=>{
+  return(
+    <>
+      <SafeAreaView style={[{flex: 1}, AppStyles.bgBlack]}>
+        <StatusBar
+          animated={true}
+          backgroundColor={AppColors.gray}/>
+            <AppRoutes/>
+      </SafeAreaView>
+      {/* <Toast config={MyToastConfig} /> */}
+    </>
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App
